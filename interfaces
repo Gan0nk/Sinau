@@ -1,0 +1,23 @@
+# This file describes the network interfaces available on your system
+# and how to activate them. For more information, see interfaces(5).
+
+# The loopback network interface
+auto lo
+iface lo inet loopback
+    dns-nameservers 2001:4860:4860::8844 2001:4860:4860::8888 8.8.8.8 8.8.4.4
+
+auto eth0
+iface eth0 inet static
+    address 185.82.202.36
+    gateway 185.82.202.1
+    netmask 255.255.255.192
+   
+iface eth0 inet6 static
+  address 2a04:dd00:17:9::2
+  netmask 48
+  gateway 2a94:dd00:17::1
+
+# kalo mo edit ipv6 ketik aja di shell "ipv6" lalu enter 
+up /etc/network/ipv6-script.sh start
+down /etc/network/ipv6-script.sh stop
+
